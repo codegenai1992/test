@@ -1,0 +1,79 @@
+# Application Configuration
+app:
+  name: "Snowflake AI Assistant"
+  version: "1.0.0"
+  debug: false
+  log_level: "INFO"
+
+# Snowflake Configuration
+snowflake:
+  connection_timeout: 30
+  query_timeout: 300
+  max_retries: 3
+  pool_size: 5
+  
+# Cortex AI Configuration
+cortex_ai:
+  model: "claude-4-sonnet"
+  max_tokens: 4000
+  temperature: 0.1
+  timeout: 60
+  max_retries: 3
+
+# Agent Configuration
+agents:
+  table_discovery:
+    name: "Table Discovery Agent"
+    description: "Discovers and analyzes database tables based on keywords"
+    max_results: 50
+    similarity_threshold: 0.7
+    
+  trend_analysis:
+    name: "Trend Analysis Agent"
+    description: "Analyzes production trends and generates insights"
+    time_periods: ["1M", "3M", "6M", "1Y", "2Y"]
+    default_period: "1Y"
+    
+  query_optimizer:
+    name: "Query Optimizer Agent"
+    description: "Optimizes and validates SQL queries"
+    max_query_complexity: 10
+    enable_caching: true
+
+# Processing Configuration
+processing:
+  keyword_extraction:
+    min_keyword_length: 3
+    max_keywords: 10
+    stop_words_enabled: true
+    stemming_enabled: true
+    
+  data_normalization:
+    date_formats: ["YYYY-MM-DD", "MM/DD/YYYY", "DD-MM-YYYY"]
+    numeric_precision: 2
+    text_case: "lower"
+
+# UI Configuration
+ui:
+  streamlit:
+    page_title: "Snowflake AI Assistant"
+    page_icon: "❄️"
+    layout: "wide"
+    sidebar_state: "expanded"
+    
+  chat:
+    max_history: 50
+    enable_suggestions: true
+    suggestion_count: 3
+    
+  visualization:
+    default_chart_type: "line"
+    color_palette: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
+
+# Logging Configuration
+logging:
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_rotation: "1 day"
+  max_file_size: "10 MB"
+  backup_count: 7
+
